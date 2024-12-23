@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="manifest" href="favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="./favicon/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>News Grid | Home</title>
+    <script src="https://kit.fontawesome.com/eaa4609b2f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="preloader">
+        <div></div>
+        <div>Loading Content!</div>
+    </div>
+
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-globe fa-3x"></i>
+                <h1>News<span>Grid</span></h1>
+            </div>
+
+            <div class="social">
+                <a href="https://web.facebook.com/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+            </div>
+
+            <div class="options">
+                <a href="/" class="current">Home</a>
+                <a href="html/about.html">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <%if(news){%>
+        <%if(news[0]){%>
+            <header class="showcase" <%-
+                `style="background: url('${news[0]['dataValues']['img']}') center center/cover;" ` %> >
+                <div class="container">
+                    <div class="text-content">
+                        <p class="sports-category">
+                            <%= news[0]['dataValues']['genre']%>
+                        </p>
+                        <h1>
+                            <%= news[0]['dataValues']['title']%>
+                        </h1>
+                        <p>
+                            <%= news[0]['dataValues']['description'].substring(0,200)%>.......
+                        </p>
+                        <a <%- `href="/article/${news[0]['dataValues']['title']}/${news[0]['dataValues']['id']}" ` %>
+                            >Read More</a>
+                    </div>
+                </div>
+            </header>
+        <%}%>
+
+        <section>
+            <div class="container">
+                <h1 class="editor-h1">Editor Picks</h1>
+                <div class="articles">
+
+                    <%if(news[1]){%>
+                        <a <%- `href="/article/${news[1]['dataValues']['title']}/${news[1]['dataValues']['id']}"
+                                ` %> class="card">
+                            <img <%- `src="${news[1]['dataValues']['img']}" `%> alt="" />
+                            <article>
+                                <p class="entertainment-category">
+                                    <%= news[1]['dataValues']['genre']%>
+                                </p>
+                                <h1>
+                                <%= news[1]['dataValues']['title']%>
+                                </h1>
+                                <p>
+                                    <%= news[1]['dataValues']['description'].substring(0,150)%>.......
+                                </p>
+                            </article>
+                        </a>
+                    <%}%>
+
+                                    <%if(news[0]){%>
+                                        <a <%-
+                                            `href="/article/${news[0]['dataValues']['title']}/${news[0]['dataValues']['id']}"
+                                            ` %> class="card">
+                                            <article>
+                                                <p class="sports-category">
+                                                    <%= news[0]['dataValues']['genre']%>
+                                                </p>
+                                                <h1>
+                                                    <%= news[0]['dataValues']['title']%>
+                                                </h1>
+                                                <p>
+                                                    <%= news[0]['dataValues']['description'].substring(0,150)%>.......
+                                                </p>
+                                            </article>
+                                        </a>
+                                        <%}%>
+
+                                            <%if(news[2]){%>
+                                                <a <%-
+                                                    `href="/article/${news[2]['dataValues']['title']}/${news[2]['dataValues']['id']}"
+                                                    ` %> class="card">
+                                                    <img <%- `src="${news[2]['dataValues']['img']}" `%> alt="" />
+                                                    <article>
+                                                        <p class="technology-category">
+                                                            <%= news[2]['dataValues']['genre']%>
+                                                        </p>
+                                                        <h1>
+                                                            <%= news[2]['dataValues']['title']%>
+                                                        </h1>
+                                                        <p>
+                                                            <%= news[2]['dataValues']['description'].substring(0,150)%>
+                                                                .......
+                                                        </p>
+                                                    </article>
+                                                </a>
+                                                <%}%>
+
+                                                    <%if(news[3]){%>
+                                                        <a <%-
+                                                            `href="/article/${news[3]['dataValues']['title']}/${news[3]['dataValues']['id']}"
+                                                            ` %> class="card">
+                                                            <article>
+                                                                <p class="technology-category">
+                                                                    <%= news[3]['dataValues']['genre']%>
+                                                                </p>
+                                                                <h1>
+                                                                    <%= news[3]['dataValues']['title']%>
+                                                                </h1>
+                                                                <p>
+                                                                    <%=
+                                                                        news[3]['dataValues']['description'].substring(0,150)%>
+                                                                        .......
+                                                                </p>
+                                                            </article>
+                                                            <img <%- `src="${news[3]['dataValues']['img']}" `%> alt=""
+                                                            />
+                                                        </a>
+                                                        <%}%>
+
+                                                            <%if(news[4]){%>
+                                                                <a <%-
+                                                                    `href="/article/${news[4]['dataValues']['title']}/${news[4]['dataValues']['id']}"
+                                                                    ` %> class="card">
+                                                                    <img <%- `src="${news[4]['dataValues']['img']}" `%>
+                                                                    alt="" />
+                                                                    <article>
+                                                                        <p class="technology-category">
+                                                                            <%= news[4]['dataValues']['genre']%>
+                                                                        </p>
+                                                                        <h1>
+                                                                            <%= news[4]['dataValues']['title']%>
+                                                                        </h1>
+                                                                        <p>
+                                                                            <%=
+                                                                                news[4]['dataValues']['description'].substring(0,150)%>
+                                                                                .......
+                                                                        </p>
+                                                                    </article>
+                                                                </a>
+                                                                <%}%>
+
+                                                                    <%if(news[5]){%>
+                                                                        <a <%-
+                                                                            `href="/article/${news[5]['dataValues']['title']}/${news[5]['dataValues']['id']}"
+                                                                            ` %> class="card">
+                                                                            <article>
+                                                                                <p class="sports-category">
+                                                                                    <%= news[5]['dataValues']['genre']%>
+                                                                                </p>
+                                                                                <h1>
+                                                                                    <%= news[5]['dataValues']['title']%>
+                                                                                </h1>
+                                                                                <p>
+                                                                                    <%=
+                                                                                        news[5]['dataValues']['description'].substring(0,150)%>
+                                                                                        .......
+                                                                                </p>
+                                                                            </article>
+                                                                        </a>
+                                                                        <%}%>
+
+                                                                            <%if(news[6]){%>
+                                                                                <a <%-
+                                                                                    `href="/article/${news[6]['dataValues']['title']}/${news[6]['dataValues']['id']}"
+                                                                                    ` %> class="card">
+                                                                                    <img <%-
+                                                                                        `src="${news[6]['dataValues']['img']}"
+                                                                                        `%> alt="" />
+                                                                                    <article>
+                                                                                        <p
+                                                                                            class="entertainment-category">
+                                                                                            <%=
+                                                                                                news[6]['dataValues']['genre']%>
+                                                                                        </p>
+                                                                                        <h1>
+                                                                                            <%=
+                                                                                                news[6]['dataValues']['title']%>
+                                                                                        </h1>
+                                                                                        <p>
+                                                                                            <%=
+                                                                                                news[6]['dataValues']['description'].substring(0,150)%>
+                                                                                                .......
+                                                                                        </p>
+                                                                                    </article>
+                                                                                </a>
+                                                                                <%}%>
+
+                                                                                    <%if(news[7]){%>
+                                                                                        <a <%-
+                                                                                            `href="/article/${news[7]['dataValues']['title']}/${news[7]['dataValues']['id']}"
+                                                                                            ` %> class="card">
+                                                                                            <img <%-
+                                                                                                `src="${news[7]['dataValues']['img']}"
+                                                                                                `%> alt="" />
+                                                                                            <article>
+                                                                                                <p
+                                                                                                    class="technology-category">
+                                                                                                    <%=
+                                                                                                        news[7]['dataValues']['genre']%>
+                                                                                                </p>
+                                                                                                <h1>
+                                                                                                    <%=
+                                                                                                        news[7]['dataValues']['title']%>
+                                                                                                </h1>
+                                                                                                <p>
+                                                                                                    <%=
+                                                                                                        news[7]['dataValues']['description'].substring(0,150)%>
+                                                                                                        .......
+                                                                                                </p>
+                                                                                            </article>
+                                                                                        </a>
+                                                                                        <%}%>
+
+                                                                                            <%if(news[8]){%>
+                                                                                                <a <%-
+                                                                                                    `href="/article/${news[8]['dataValues']['title']}/${news[8]['dataValues']['id']}"
+                                                                                                    ` %>
+                                                                                                    class="card">
+                                                                                                    <article>
+                                                                                                        <p
+                                                                                                            class="technology-category">
+                                                                                                            <%=
+                                                                                                                news[8]['dataValues']['genre']%>
+                                                                                                        </p>
+                                                                                                        <h1>
+                                                                                                            <%=
+                                                                                                                news[8]['dataValues']['title']%>
+                                                                                                        </h1>
+                                                                                                        <p>
+                                                                                                            <%=
+                                                                                                                news[8]['dataValues']['description'].substring(0,150)%>
+                                                                                                                .......
+                                                                                                        </p>
+                                                                                                    </article>
+                                                                                                    <img <%-
+                                                                                                        `src="${news[8]['dataValues']['img']}"
+                                                                                                        `%> alt="" />
+                                                                                                </a>
+                                                                                                <%}%>
+
+                                                                                                    <%if(news[9]){%>
+                                                                                                        <a <%-
+                                                                                                            `href="/article/${news[9]['dataValues']['title']}/${news[9]['dataValues']['id']}"
+                                                                                                            ` %>
+                                                                                                            class="card">
+                                                                                                            <article>
+                                                                                                                <p
+                                                                                                                    class="technology-category">
+                                                                                                                    <%=
+                                                                                                                        news[9]['dataValues']['genre']%>
+                                                                                                                </p>
+                                                                                                                <h1>
+                                                                                                                    <%=
+                                                                                                                        news[9]['dataValues']['title']%>
+                                                                                                                </h1>
+                                                                                                                <p>
+                                                                                                                    <%=
+                                                                                                                        news[9]['dataValues']['description'].substring(0,150)%>
+                                                                                                                        .......
+                                                                                                                </p>
+                                                                                                            </article>
+                                                                                                            <img <%-
+                                                                                                                `src="${news[9]['dataValues']['img']}"
+                                                                                                                `%>
+                                                                                                            alt="" />
+                                                                                                        </a>
+                                                                                                        <%}%>
+
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="pagination-container">
+                        <nav class="pagination-nav">
+                            <!-- Previous Page -->
+                            <% if (currentPage > 1) { %>
+                            <a href="/?page=<%= currentPage - 1 %>" class="pagination-link pagination-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <% } %>
+                    
+                            <!-- Page Numbers -->
+                            <% for (let i = 1; i <= totalPages; i++) { %>
+                            <a href="/?page=<%= i %>" class="pagination-link <% if (i === currentPage) { %>active-page<% } %>">
+                                <%= i %>
+                            </a>
+                            <% } %>
+                    
+                            <!-- Next Page -->
+                            <% if (currentPage < totalPages) { %>
+                            <a href="/?page=<%= currentPage + 1 %>" class="pagination-link pagination-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                            <% } %>
+                        </nav>
+                    </div>
+                    
+
+                </section>
+                <%}%>
+
+                    <footer>
+                        <div class="container">
+                            <div class="footer">
+                                <article>
+                                    <div class="logo">
+                                        <i class="fas fa-globe fa-2x"></i>
+                                        <h2>News<span>Grid</span></h2>
+                                    </div>
+                                    <p>
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
+                                        deserunt assumenda enim non? Ratione ipsum voluptates fuga eos
+                                        earum vitae.
+                                    </p>
+                                </article>
+
+                                <article>
+                                    <h4>EMAIL NEWSLETTER</h4>
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                                    <input type="email" placeholder="Enter Email..." />
+                                    <a href="index.html#"> Subscribe</a>
+                                </article>
+
+                                <article>
+                                    <h4>SITE LINKS</h4>
+                                    <p>Help & Support</p>
+                                    <p>Privacy Policy</p>
+                                    <p>About Us</p>
+                                    <p>Contact</p>
+                                </article>
+
+                                <article>
+                                    <h4>JOIN OUR CLUB</h4>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Obcaecati, maiores!
+                                    </p>
+                                    <a href="index.html#">Join Now</a>
+                                </article>
+                            </div>
+
+                            <div class="copyright">
+                                <p>Copyright &copy; 2021, All Rights Reserved</p>
+                            </div>
+                        </div>
+                    </footer>
+
+                    <script src="js/script.js"></script>
+</body>
+
+</html>
